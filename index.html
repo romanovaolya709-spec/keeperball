@@ -474,7 +474,7 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
 <div class="deadline" id="deadlineBar">
   <div class="wrap">
     <span class="dl-dot" aria-hidden="true"></span>
-    <p class="dl-text" id="dlText">Идёт приём заявок на <em>первый отборочный тур</em> — <em>16 сентября</em></p>
+    <p class="dl-text" id="dlText">Идёт приём заявок на <em>второй отборочный тур</em> — <em>14 октября</em></p>
     <a href="#apply" class="btn btn-primary">Подать заявку</a>
   </div>
 </div>
@@ -680,13 +680,13 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
     <div class="sec-head reveal">
       <span class="eyebrow on-dark">География турнира</span>
       <h2>Откуда едут команды</h2>
-      <p>«Кипербол-Юниор» собирает ребят со всей страны. Каждая точка на карте — город, из которого уже пришла заявка на первый отборочный тур.</p>
+      <p>«Кипербол-Юниор» собирает ребят со всей страны. Каждая точка на карте — город, из которого уже пришла заявка.</p>
     </div>
 
     <div class="geo-panel reveal">
       <div class="geo-top">
         <button type="button" class="geo-back" id="geoBack" hidden>← Вся Россия</button>
-        <span class="geo-title" id="geoTitle">Первый отборочный тур</span>
+        <span class="geo-title" id="geoTitle">Вся Россия</span>
         <span class="geo-count"><b id="geoCount">14</b><span id="geoWord">городов</span></span>
       </div>
 
@@ -721,6 +721,7 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
          но если скрипт не отработает, города всё равно останутся на странице. -->
     <div class="geo-chips" id="geoChips">
       <span class="geo-chip">Москва</span>
+      <span class="geo-chip">Одинцово</span>
       <span class="geo-chip">Химки</span>
       <span class="geo-chip">Мытищи</span>
       <span class="geo-chip">Королёв</span>
@@ -762,7 +763,7 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
     <div class="form-side reveal">
       <span class="eyebrow">Заявка</span>
       <h2>Подать заявку на турнир</h2>
-      <p>Заполните форму — мы свяжемся, пришлём чек-лист (медсправка, сопровождающий) и подтвердим участие. Ближайший отбор — 16 сентября.</p>
+      <p>Заполните форму — мы свяжемся, пришлём чек-лист (медсправка, сопровождающий) и подтвердим участие. Ближайший отбор — 14 октября.</p>
       <a href="https://t.me/academiaA35" class="tg" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.7 13.6l-4.8-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3Z"/></svg>
         Или напишите нам в Telegram
@@ -881,7 +882,6 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
               <label>Желаемый отбор <span class="req">*</span></label>
               <select name="Отбор" required>
                 <option value="">Выберите</option>
-                <option>16 сентября</option>
                 <option>14 октября</option>
                 <option>11 ноября</option>
                 <option>Любой / подскажите</option>
@@ -965,7 +965,6 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
 // ▼ Список отборов. Плашка сама показывает ближайший из ещё не прошедших,
 //   а когда пройдёт последний — скрывается. Даты в формате ГГГГ-ММ-ДД.
 var TOURS=[
-  {date:'2026-09-16', name:'первый отборочный тур',  when:'16 сентября'},
   {date:'2026-10-14', name:'второй отборочный тур',  when:'14 октября'},
   {date:'2026-11-11', name:'третий отборочный тур',  when:'11 ноября'},
   {date:'2026-11-12', name:'финал года',             when:'12 ноября'}
@@ -996,6 +995,7 @@ var CITIES_RU=[
 // Карта Москвы и области (открывается кликом по общей карте)
 var CITIES_MOS=[
   {n:'Москва',           lat:55.755, lon:37.617},
+  {n:'Одинцово',         lat:55.679, lon:37.273},
   {n:'Химки',            lat:55.889, lon:37.445},
   {n:'Мытищи',           lat:55.910, lon:37.736},
   {n:'Королёв',          lat:55.916, lon:37.825},
@@ -1180,7 +1180,7 @@ var CITIES_MOS=[
     var total=isMos?CITIES_MOS.length:(CITIES_RU.length-1+CITIES_MOS.length);
     elCount.textContent=total;
     elWord.textContent=plural(total,['город','города','городов']);
-    elTitle.textContent=isMos?'Москва и область':'Первый отборочный тур';
+    elTitle.textContent=isMos?'Москва и область':'Вся Россия';
     elHint.textContent=isMos?'Нажмите на карту, чтобы добавить свой город'
                             :'Нажмите на Москву и область, чтобы приблизить';
     renderChips();

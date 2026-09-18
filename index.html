@@ -452,6 +452,49 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
   .age-tile b{font-size:26px}
 }
 
+/* FINALISTS */
+.fin{max-width:900px;background:#fff;border:1px solid #e3e9f3;border-radius:16px;
+  box-shadow:0 10px 30px rgba(11,20,48,.05)}
+.fin summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:13px;
+  padding:22px 26px;font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink);
+  border-radius:16px;transition:background .16s}
+.fin summary::-webkit-details-marker{display:none}
+.fin summary:hover{background:#f7f9fd}
+.fin summary:focus-visible{outline:3px solid var(--royal);outline-offset:2px}
+.fin .cnt{font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:.03em;
+  background:var(--flare);color:#fff;border-radius:999px;padding:4px 11px 3px;flex:none}
+.fin .pl{margin-left:auto;font-family:'Manrope';font-weight:800;color:var(--flare);
+  font-size:26px;line-height:1;transition:transform .2s;flex:none}
+.fin[open] .pl{transform:rotate(45deg)}
+.fin[open] summary{border-radius:16px 16px 0 0;border-bottom:1px solid #eef2f8}
+.fin-body{padding:6px 26px 24px}
+.fin-list{columns:3;column-gap:32px;margin:0;padding:0;list-style:none}
+.fin-list li{break-inside:avoid;font-family:'Manrope';font-weight:600;font-size:15.5px;
+  color:var(--ink);padding:10px 0 10px 19px;position:relative;border-bottom:1px solid #f1f4fa}
+.fin-list li::before{content:"";position:absolute;left:2px;top:50%;width:6px;height:6px;
+  margin-top:-3px;border-radius:50%;background:var(--royal)}
+.fin-note{margin-top:20px;font-family:'Manrope';font-weight:500;font-size:13.5px;
+  color:var(--muted);text-transform:none}
+@media (max-width:860px){ .fin-list{columns:2} }
+@media (max-width:560px){
+  .fin-list{columns:1}
+  .fin summary{padding:18px 18px;font-size:16px;gap:10px}
+  .fin-body{padding:6px 18px 18px}
+}
+
+/* прошедший отбор */
+.fix-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tag-done{font-family:'Manrope';font-weight:800;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  background:#e7ecf6;color:#6a7c9c;border-radius:999px;padding:4px 9px 3px;flex:none}
+.fix.is-done{background:#f8fafd}
+.fix.is-done .date{color:#8494b2}
+.fix.is-done .time{color:#93a1bc}
+.fix-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+  font-family:'Manrope';font-weight:800;font-size:13px;color:var(--royal);
+  border-bottom:1px solid rgba(3,66,171,.3);padding-bottom:2px;transition:color .16s,border-color .16s}
+.fix-link:hover{color:var(--flare);border-color:rgba(210,18,46,.4)}
+.fix-link svg{width:14px;height:14px;flex:none}
+
 </style>
 </head>
 <body>
@@ -661,7 +704,14 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
       <p>Три отбора в течение сезона и финал года. Чем больше отборов сыграешь — тем выше шанс попасть в финал.</p>
     </div>
     <div class="fixtures">
-      <div class="fix reveal"><div class="lbl">Отбор 1</div><div class="date">16.09</div><div class="time">2026 · 10:00–14:00</div></div>
+      <div class="fix is-done reveal">
+        <div class="fix-top"><span class="lbl">Отбор 1</span><span class="tag-done">Прошёл</span></div>
+        <div class="date">16.09</div>
+        <div class="time">2026 · 10:00–14:00</div>
+        <a class="fix-link" href="#finalists">Список финалистов
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
       <div class="fix reveal"><div class="lbl">Отбор 2</div><div class="date">14.10</div><div class="time">2026 · 10:00–14:00</div></div>
       <div class="fix reveal"><div class="lbl">Отбор 3</div><div class="date">11.11</div><div class="time">2026 · 10:00–14:00</div></div>
       <div class="fix final reveal"><div class="lbl">Финал года</div><div class="date">12.11</div><div class="time">Кубок вручает Игорь Акинфеев</div></div>
@@ -673,6 +723,51 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
   </div>
 </section>
 
+
+<!-- FINALISTS -->
+<section class="section" id="finalists">
+  <div class="wrap" style="max-width:940px">
+    <div class="sec-head reveal" style="margin-bottom:30px">
+      <span class="eyebrow">Итоги отбора</span>
+      <h2>Финалисты первого тура</h2>
+      <p>Отбор прошёл 16 сентября в Реутове.</p>
+    </div>
+    <details class="fin reveal">
+      <summary>Список финалистов<span class="cnt">26</span><span class="pl">+</span></summary>
+      <div class="fin-body">
+        <ul class="fin-list">
+          <li>Андрюхин А.</li>
+          <li>Костеренко Д.</li>
+          <li>Дензин К.</li>
+          <li>Рогожин С.</li>
+          <li>Лопатников Д.</li>
+          <li>Арушанян А.</li>
+          <li>Дегтярёв А.</li>
+          <li>Алферьев Г.</li>
+          <li>Островерхий М.</li>
+          <li>Ильин С.</li>
+          <li>Еремин Д.</li>
+          <li>Некрасов Д.</li>
+          <li>Сибиряков И.</li>
+          <li>Николаев А.</li>
+          <li>Евтушенко В.</li>
+          <li>Косаткин В.</li>
+          <li>Заикин Е.</li>
+          <li>Филатов Я.</li>
+          <li>Коровайцев С.</li>
+          <li>Бутарев Д.</li>
+          <li>Черныш Е.</li>
+          <li>Бардин Д.</li>
+          <li>Ляшевич Б.</li>
+          <li>Левашов В.</li>
+          <li>Калашников Д.</li>
+          <li>Камалтдинов А.</li>
+        </ul>
+        <p class="fin-note">Имена указаны в формате «фамилия и инициал» — так участники не раскрываются полностью в открытом доступе.</p>
+      </div>
+    </details>
+  </div>
+</section>
 
 <!-- GEOGRAPHY -->
 <section class="section geo" id="geo">

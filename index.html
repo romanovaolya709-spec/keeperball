@@ -495,48 +495,22 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
 .fix-link:hover{color:var(--flare);border-color:rgba(210,18,46,.4)}
 .fix-link svg{width:14px;height:14px;flex:none}
 
-/* GALLERY */
-.gal{background:#fff}
-.gal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.gal-item{position:relative;display:block;padding:0;border:0;margin:0;background:#e9eef7;
-  border-radius:13px;overflow:hidden;aspect-ratio:2/3;cursor:pointer;
-  transition:transform .22s ease, box-shadow .22s ease}
-.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
-.gal-item:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(11,20,48,.16)}
-.gal-item:hover img{transform:scale(1.06)}
-.gal-item:focus-visible{outline:3px solid var(--royal);outline-offset:3px}
-.gal-cta{margin-top:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.gal-cta p{font-family:'Manrope';font-weight:500;color:var(--muted);font-size:15.5px;
-  text-transform:none;flex:1 1 260px;margin:0}
-.gal-cta .btn svg{width:16px;height:16px;flex:none}
-@media (max-width:900px){ .gal-grid{grid-template-columns:repeat(3,1fr)} }
-@media (max-width:560px){
-  .gal-grid{grid-template-columns:repeat(2,1fr);gap:9px}
-  .gal-cta .btn{width:100%;justify-content:center}
-}
-
-/* lightbox */
-.lb{position:fixed;inset:0;z-index:300;display:none;background:rgba(6,11,28,.96);
-  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
-.lb.open{display:block}
-.lb-stage{position:absolute;top:58px;right:16px;bottom:64px;left:16px;display:grid;place-items:center}
-.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;
-  box-shadow:0 22px 60px rgba(0,0,0,.55)}
-.lb-btn{position:absolute;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:#fff;cursor:pointer;
-  transition:background .16s,border-color .16s}
-.lb-btn:hover{background:var(--royal);border-color:var(--royal-lt)}
-.lb-btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
-.lb-btn svg{width:21px;height:21px}
-.lb-close{top:12px;right:12px}
-.lb-prev{top:50%;left:14px;margin-top:-23px}
-.lb-next{top:50%;right:14px;margin-top:-23px}
-.lb-count{position:absolute;bottom:22px;left:0;right:0;text-align:center;
-  font-family:'Manrope';font-weight:700;font-size:13.5px;letter-spacing:.08em;color:#9fb0d4}
-@media (max-width:560px){
-  .lb-stage{top:54px;right:8px;bottom:58px;left:8px}
-  .lb-btn{width:40px;height:40px}
-  .lb-prev{left:6px;margin-top:-20px} .lb-next{right:6px;margin-top:-20px}
+/* PHOTO ALBUM */
+.gal{background:#fff;padding:56px 0}
+.album{display:flex;align-items:center;gap:22px;flex-wrap:wrap;background:#f7fafd;
+  border:1px solid #e3e9f3;border-radius:18px;padding:28px 30px}
+.album-ic{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;
+  background:var(--royal);color:#fff;flex:none}
+.album-ic svg{width:27px;height:27px}
+.album-txt{flex:1 1 300px}
+.album-txt h3{font-size:22px;font-weight:600;line-height:1.15;margin:0}
+.album-txt p{font-family:'Manrope';font-weight:500;font-size:15px;color:var(--muted);
+  text-transform:none;margin:7px 0 0}
+.album .btn{flex:none}
+.album .btn svg{width:16px;height:16px;flex:none}
+@media (max-width:640px){
+  .album{padding:22px 20px;gap:16px}
+  .album .btn{flex:1 1 100%;justify-content:center}
 }
 
 </style>
@@ -817,70 +791,24 @@ footer{background:var(--ink);color:#fff;padding:56px 0 30px}
   </div>
 </section>
 
-<!-- GALLERY -->
+<!-- PHOTO ALBUM -->
 <section class="section gal" id="gallery">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Фотогалерея</span>
-      <h2>Как это было</h2>
-      <p>Кадры с отборочных туров в Реутове.</p>
-    </div>
-    <div class="gal-grid reveal">
-      <button type="button" class="gal-item" data-i="0">
-        <img src="photos/01-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="1">
-        <img src="photos/02-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="2">
-        <img src="photos/03-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="3">
-        <img src="photos/04-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="4">
-        <img src="photos/05-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="5">
-        <img src="photos/06-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="6">
-        <img src="photos/07-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="7">
-        <img src="photos/08-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="8">
-        <img src="photos/09-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-      <button type="button" class="gal-item" data-i="9">
-        <img src="photos/10-thumb.jpg" loading="lazy" width="600" height="900" alt="Фото с отборочного турнира «Кипербол-Юниор»">
-      </button>
-    </div>
-    <div class="gal-cta reveal" id="galCta" hidden>
-      <p>Это лишь часть снимков — полные альбомы лежат в нашей группе.</p>
-      <a class="btn btn-primary" id="galVk" href="#" target="_blank" rel="noopener">
-        Смотреть весь альбом во ВКонтакте
+    <div class="album reveal">
+      <div class="album-ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2.2a1.5 1.5 0 0 0 1.25-.67l.8-1.2A1.5 1.5 0 0 1 10 4.5h4a1.5 1.5 0 0 1 1.25.63l.8 1.2A1.5 1.5 0 0 0 17.3 7h2.2A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.4"/></svg>
+      </div>
+      <div class="album-txt">
+        <h3>Фотоальбом турнира</h3>
+        <p>Снимки с отборочных туров — в нашей группе ВКонтакте.</p>
+      </div>
+      <a class="btn btn-primary" href="https://vk.ru/album-199486592_311817150" target="_blank" rel="noopener">
+        Открыть альбом
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
       </a>
     </div>
   </div>
 </section>
-
-<!-- LIGHTBOX -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
-  <div class="lb-stage"><img id="lbImg" src="" alt=""></div>
-  <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Закрыть">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-  </button>
-  <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Предыдущее фото">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
-  </button>
-  <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Следующее фото">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-  </button>
-  <div class="lb-count" id="lbCount"></div>
-</div>
 
 <!-- GEOGRAPHY -->
 <section class="section geo" id="geo">
@@ -1447,85 +1375,6 @@ var CITIES_MOS=[
 </script>
 
 <script></script>
-
-<script>
-// ---- Фотогалерея ----
-// ▼▼▼ ВСТАВЬТЕ СЮДА ССЫЛКУ НА АЛЬБОМ ВКОНТАКТЕ ▼▼▼
-// Пока строка пустая, кнопка «Смотреть весь альбом» на сайте не показывается.
-var VK_ALBUM = 'https://vk.ru/album-199486592_311817150';
-// ▲▲▲ ДАЛЬШЕ НИЧЕГО МЕНЯТЬ НЕ НУЖНО ▲▲▲
-
-(function(){
-  var items=document.querySelectorAll('.gal-item');
-  var lb=document.getElementById('lb');
-  if(!items.length||!lb) return;
-
-  // кнопка на альбом появляется только если ссылка задана
-  var vk=document.getElementById('galVk'), cta=document.getElementById('galCta');
-  if(VK_ALBUM && vk && cta){ vk.href=VK_ALBUM; cta.hidden=false; }
-
-  var img=document.getElementById('lbImg');
-  var cnt=document.getElementById('lbCount');
-  var total=items.length, cur=0, lastFocus=null;
-
-  function src(i){ return 'photos/'+('0'+(i+1)).slice(-2)+'.jpg'; }
-
-  function preload(i){
-    if(i<0||i>=total) return;
-    var p=new Image(); p.src=src(i);
-  }
-
-  function show(i){
-    cur=(i+total)%total;
-    img.src=src(cur);
-    img.alt='Фото '+(cur+1)+' из '+total+' с отборочного турнира «Кипербол-Юниор»';
-    cnt.textContent=(cur+1)+' / '+total;
-    preload(cur+1); preload(cur-1);   // соседние — чтобы листалось без паузы
-  }
-
-  function open(i){
-    lastFocus=document.activeElement;
-    show(i);
-    lb.classList.add('open');
-    document.body.style.overflow='hidden';
-    document.getElementById('lbNext').focus();
-  }
-  function close(){
-    lb.classList.remove('open');
-    document.body.style.overflow='';
-    img.src='';
-    if(lastFocus&&lastFocus.focus) lastFocus.focus();
-  }
-
-  for(var k=0;k<items.length;k++){
-    (function(el){
-      el.addEventListener('click',function(){ open(parseInt(el.getAttribute('data-i'),10)||0); });
-    })(items[k]);
-  }
-
-  document.getElementById('lbClose').addEventListener('click',close);
-  document.getElementById('lbPrev').addEventListener('click',function(){ show(cur-1); });
-  document.getElementById('lbNext').addEventListener('click',function(){ show(cur+1); });
-  lb.addEventListener('click',function(e){ if(e.target===lb||e.target.parentNode===lb&&e.target.className==='lb-stage') close(); });
-  document.querySelector('.lb-stage').addEventListener('click',function(e){ if(e.target!==img) close(); });
-
-  document.addEventListener('keydown',function(e){
-    if(!lb.classList.contains('open')) return;
-    if(e.key==='Escape') close();
-    else if(e.key==='ArrowLeft') show(cur-1);
-    else if(e.key==='ArrowRight') show(cur+1);
-  });
-
-  // листание свайпом на телефоне
-  var x0=null;
-  lb.addEventListener('touchstart',function(e){ x0=e.changedTouches[0].clientX; },{passive:true});
-  lb.addEventListener('touchend',function(e){
-    if(x0===null) return;
-    var dx=e.changedTouches[0].clientX-x0; x0=null;
-    if(Math.abs(dx)>45) show(cur+(dx<0?1:-1));
-  },{passive:true});
-})();
-</script>
 
 <script>
 // Scroll reveal
